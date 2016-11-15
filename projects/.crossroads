@@ -1,0 +1,10 @@
+################
+# CRDS env vars
+################
+export CRDS_API_ENDPOINT='https://gatewayint.crossroads.net/gateway/'
+export CRDS_CMS_ENDPOINT='https://contentint.crossroads.net/'
+export CRDS_ENV='dev';
+export CRDS_STREAMSPOT_API_KEY='a0cb38cb-8146-47c2-b11f-6d93f4647389'
+export CRDS_STREAMSPOT_SSID='crossr30e3'
+export CRDS_STREAMSPOT_PLAYER_ID='2887fba1'
+export CRDS_COOKIE_DOMAIN=localhost
