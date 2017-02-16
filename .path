@@ -1,4 +1,4 @@
-export GIT_EDITOR='/Applications/MacVim.app/Contents/MacOS/Vim -gf '
+export GIT_EDITOR='vi -f'
 export EDITOR='subl'
 # User configuration
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/Users/gabe/.android/sdk/tools:$PATH
