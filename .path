@@ -1,4 +1,4 @@
-export GIT_EDITOR='vi -f'
+export GIT_EDITOR='vim'
 export EDITOR='subl'
 # User configuration
 export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/Users/gabe/.android/sdk/tools:$PATH
