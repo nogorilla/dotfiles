@@ -37,3 +37,5 @@ source $HOME/.dotfiles/projects/.msa
 ## PLUGINS ##
 source /Users/gabe/workspace/shell/zsh/k/k.plugin.zsh
 
+DISABLE_AUTO_TITLE="true"
+

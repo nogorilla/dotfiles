@@ -1,4 +1,4 @@
-alias ll='gls -alh --color=auto --group-directories-first'
+alias ll='gls -al --si --color=auto --group-directories-first'
 
 alias copy="tr -d '\n' | pbcopy"
 alias cwd="pwd | tr -d '\n' | pbcopy"

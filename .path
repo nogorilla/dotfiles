@@ -1,6 +1,6 @@
 export GIT_EDITOR='vim'
 export EDITOR='subl'
 # User configuration
-export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/Users/gabe/.android/sdk/tools:$PATH
+export PATH=$HOME/bin:/usr/local/sbin:/usr/local/bin:/usr/local/opt/openssl/bin:/usr/local/opt/mozjpeg/bin:$PATH
 export ANDROID_HOME=$HOME/.android/sdk
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8.0_45`
