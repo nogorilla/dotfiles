@@ -5,7 +5,9 @@ export ZSH=$HOME/.oh-my-zsh
 # Look in ~/.oh-my-zsh/themes/
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
-ZSH_THEME="aussiegeek-custom"
+# ZSH_THEME="aussiegeek-custom"
+ZSH_THEME="spaceship"
+SPACESHIP_DOCKER_SHOW="false"
 
 ENABLE_CORRECTION="false"
 
@@ -14,6 +16,7 @@ plugins=(git zsh-syntax-highlighting brew sublime common-aliases osx)
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/.dotfiles/.functions
+source $HOME/.dotfiles/.utils
 source $HOME/.dotfiles/.path
 
 #############################
@@ -24,6 +27,7 @@ source $HOME/.dotfiles/aliases/.php
 source $HOME/.dotfiles/aliases/.python
 source $HOME/.dotfiles/aliases/.ruby
 source $HOME/.dotfiles/aliases/.postgres
+source $HOME/.dotfiles/aliases/.mongo
 
-DISABLE_AUTO_TITLE="true"
+DISABLE_AUTO_TITLE="false"
 
