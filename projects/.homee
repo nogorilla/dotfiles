@@ -1,0 +1,11 @@
+function reset_homee_db {
+  if [ ! -n "$1" ]; then
+    echo "Enter a file to import"
+  fi
+
+  user=root
+  database=HOMEE_WAP_DB
+
+  mysql --user="$user" --database="$database" --execute="DROP DATABASE $database; CREATE DATABASE $database;"
+  mysql --user="$user" --database="$database" < "$1"
+}
