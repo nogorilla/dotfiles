@@ -7,6 +7,7 @@ alias path='open -a "Path Finder" ./'
 alias work='cd /Users/gabe/workspace'
 alias weather='curl -4 wttr.in'
 alias ag='ag -p /Users/gabe/.agignore'
+alias git_undo='git reset --soft HEAD\^'
 
 # clear down load history
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
