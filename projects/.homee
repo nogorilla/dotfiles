@@ -9,3 +9,5 @@ function reset_homee_db {
     mysql --user="$user" --database="$database" < "$1"
   fi
 }
+
+export APPLICATION_ENV=dev
