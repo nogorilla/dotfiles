@@ -20,8 +20,6 @@ source $HOME/.dotfiles/.functions
 source $HOME/.dotfiles/.utils
 source $HOME/.dotfiles/.path
 
-source $HOME/.dotfiles/projects/.homee
-
 #############################
 ## ----- ALIAS files ----- ##
 #############################
