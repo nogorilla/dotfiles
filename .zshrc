@@ -23,6 +23,8 @@ source $HOME/.dotfiles/path.sh
 
 source $HOME/.dotfiles/apps/code.sh
 
+source $HOME/.dotfiles/projects/alchemy.sh
+
 #############################
 ## ----- ALIAS files ----- ##
 #############################
