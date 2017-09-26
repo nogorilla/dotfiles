@@ -9,6 +9,7 @@ export ZSH=$HOME/.oh-my-zsh
 ZSH_THEME="spaceship"
 
 SPACESHIP_DOCKER_SHOW="false"
+SPACESHIP_BATTERY_SHOW="false"
 
 ENABLE_CORRECTION="false"
 
@@ -16,19 +17,21 @@ plugins=(git zsh-syntax-highlighting brew sublime common-aliases osx)
 
 source $ZSH/oh-my-zsh.sh
 
-source $HOME/.dotfiles/.functions
-source $HOME/.dotfiles/.utils
-source $HOME/.dotfiles/.path
+source $HOME/.dotfiles/functions.sh
+source $HOME/.dotfiles/utils.sh
+source $HOME/.dotfiles/path.sh
+
+source $HOME/.dotfiles/apps/code.sh
 
 #############################
 ## ----- ALIAS files ----- ##
 #############################
-source $HOME/.dotfiles/aliases/.general
-source $HOME/.dotfiles/aliases/.mongo
-source $HOME/.dotfiles/aliases/.php
-source $HOME/.dotfiles/aliases/.python
-source $HOME/.dotfiles/aliases/.postgres
-source $HOME/.dotfiles/aliases/.redis
-source $HOME/.dotfiles/aliases/.ruby
+source $HOME/.dotfiles/aliases/general.sh
+source $HOME/.dotfiles/aliases/mongo.sh
+source $HOME/.dotfiles/aliases/php.sh
+source $HOME/.dotfiles/aliases/python.sh
+source $HOME/.dotfiles/aliases/postgres.sh
+source $HOME/.dotfiles/aliases/redis.sh
+source $HOME/.dotfiles/aliases/ruby.sh
 
 DISABLE_AUTO_TITLE="false"

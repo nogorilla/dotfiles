@@ -1,6 +1,0 @@
-export GIT_EDITOR='vim'
-export EDITOR='subl'
-
-# User configuration
-export PATH=/usr/local/Cellar/node/7.8.0/bin:$HOME/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/usr/local/go/bin:$PATH
-
