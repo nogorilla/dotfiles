@@ -18,7 +18,9 @@ plugins=(git zsh-syntax-highlighting brew sublime common-aliases osx)
 source $ZSH/oh-my-zsh.sh
 
 source $HOME/.dotfiles/functions.sh
-source $HOME/.dotfiles/secret.sh
+if [ -e $HOME/.dotfiles/secret.sh ]; then
+  source $HOME/.dotfiles/secret.sh
+fi
 source $HOME/.dotfiles/utils.sh
 source $HOME/.dotfiles/path.sh
 
