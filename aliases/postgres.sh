@@ -1,1 +1,2 @@
-alias pg_start='pg_ctl -D /usr/local/var/postgres -l /usr/local/postgres/server.log start'
+alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
