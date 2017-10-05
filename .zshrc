@@ -10,6 +10,7 @@ ZSH_THEME="spaceship"
 
 SPACESHIP_DOCKER_SHOW="false"
 SPACESHIP_BATTERY_SHOW="false"
+SPACESHIP_KUBECONTEXT_SHOW="false"
 
 ENABLE_CORRECTION="false"
 
@@ -27,6 +28,7 @@ source $HOME/.dotfiles/path.sh
 source $HOME/.dotfiles/apps/code.sh
 source $HOME/.dotfiles/apps/cli.sh
 source $HOME/.dotfiles/apps/docker.sh
+source $HOME/.dotfiles/apps/sourcetree.sh
 
 source $HOME/.dotfiles/projects/alchemy.sh
 
