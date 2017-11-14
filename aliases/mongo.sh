@@ -1,1 +1,1 @@
-alias mongo-silent='mongod --fork --logpath /var/log/mongod.log'
+alias mongo-silent='sudo mongod --fork --logpath /var/log/mongod.log'

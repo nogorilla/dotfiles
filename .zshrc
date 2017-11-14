@@ -13,7 +13,7 @@ SPACESHIP_BATTERY_SHOW="false"
 
 ENABLE_CORRECTION="false"
 
-plugins=(git zsh-syntax-highlighting brew sublime common-aliases osx)
+plugins=(git zsh-syntax-highlighting brew common-aliases osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -34,6 +34,7 @@ source $HOME/.dotfiles/projects/alchemy.sh
 ## ----- ALIAS files ----- ##
 #############################
 source $HOME/.dotfiles/aliases/general.sh
+source $HOME/.dotfiles/aliases/js.sh
 source $HOME/.dotfiles/aliases/mongo.sh
 source $HOME/.dotfiles/aliases/php.sh
 source $HOME/.dotfiles/aliases/python.sh
