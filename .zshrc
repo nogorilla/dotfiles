@@ -6,14 +6,14 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="aussiegeek-custom"
-ZSH_THEME="spaceship"
+ZSH_THEME=""
 
 SPACESHIP_DOCKER_SHOW="false"
-SPACESHIP_BATTERY_SHOW="false"
+# SPACESHIP_BATTERY_SHOW="false"
 
 ENABLE_CORRECTION="false"
 
-plugins=(git zsh-syntax-highlighting brew common-aliases osx)
+plugins=(git gitfast zsh-syntax-highlighting brew common-aliases osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -27,6 +27,7 @@ source $HOME/.dotfiles/path.sh
 source $HOME/.dotfiles/apps/code.sh
 source $HOME/.dotfiles/apps/cli.sh
 source $HOME/.dotfiles/apps/docker.sh
+source $HOME/.dotfiles/apps/nvm.sh
 
 source $HOME/.dotfiles/projects/alchemy.sh
 
