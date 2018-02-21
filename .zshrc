@@ -27,6 +27,7 @@ source $HOME/.dotfiles/path.sh
 source $HOME/.dotfiles/apps/code.sh
 source $HOME/.dotfiles/apps/cli.sh
 source $HOME/.dotfiles/apps/docker.sh
+source $HOME/.dotfiles/apps/go.sh
 source $HOME/.dotfiles/apps/nvm.sh
 source $HOME/.dotfiles/apps/sourcetree.sh
 

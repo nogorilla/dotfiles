@@ -9,6 +9,7 @@ alias ag='ag -p /Users/gabe/.agignore'
 alias git_undo='git reset --soft HEAD\^'
 alias cdd='z'
 alias status='glances'
+alias h='history | grep'
 
 # clear down load history
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
