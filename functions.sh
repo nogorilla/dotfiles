@@ -18,6 +18,7 @@ function mkpub {
   cd $1
   git init
   print "#$1" > README.md
+  touch .gitignore
   hub create
   git add .
   git commit -m "First commit: add README, LICENSE, and .gitignore."
@@ -27,6 +28,6 @@ function mkpub {
 
 # Readd ssh key
 # http://apple.stackexchange.com/a/254714/67470
-ssh-add -A 2>/dev/null;
+# ssh-add -A 2>/dev/null;
 
 # eval "$(rbenv init -)"
