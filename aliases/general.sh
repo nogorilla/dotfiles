@@ -13,6 +13,9 @@ alias h='history | grep'
 alias lg='lazygit'
 alias cat='bat'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+alias ping='prettyping --nolegend'
+alias preview="fzf --preview 'bat --color \"always\" {}'"
+export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 
 
 # clear down load history
