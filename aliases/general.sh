@@ -22,3 +22,6 @@ export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 
 eval "$(thefuck --alias)"
+[ -f /Users/gabe/.travis/travis.sh ] && source /Users/gabe/.travis/travis.sh
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
