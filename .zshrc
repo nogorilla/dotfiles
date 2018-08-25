@@ -6,10 +6,10 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 # ZSH_THEME="aussiegeek-custom"
-ZSH_THEME=""
+ZSH_THEME="spaceship"
 
 SPACESHIP_DOCKER_SHOW="false"
-# SPACESHIP_BATTERY_SHOW="false"
+SPACESHIP_BATTERY_SHOW="true"
 
 ENABLE_CORRECTION="false"
 
@@ -24,11 +24,12 @@ fi
 source $HOME/.dotfiles/utils.sh
 source $HOME/.dotfiles/path.sh
 
-source $HOME/.dotfiles/apps/code.sh
 source $HOME/.dotfiles/apps/cli.sh
+source $HOME/.dotfiles/apps/code.sh
 source $HOME/.dotfiles/apps/docker.sh
 source $HOME/.dotfiles/apps/go.sh
 source $HOME/.dotfiles/apps/nvm.sh
+source $HOME/.dotfiles/apps/serverless.sh
 source $HOME/.dotfiles/apps/sourcetree.sh
 
 source $HOME/.dotfiles/projects/alchemy.sh
@@ -36,13 +37,14 @@ source $HOME/.dotfiles/projects/alchemy.sh
 #############################
 ## ----- ALIAS files ----- ##
 #############################
+source $HOME/.dotfiles/aliases/aws.sh
 source $HOME/.dotfiles/aliases/general.sh
 source $HOME/.dotfiles/aliases/git.sh
 source $HOME/.dotfiles/aliases/js.sh
 source $HOME/.dotfiles/aliases/mongo.sh
-source $HOME/.dotfiles/aliases/php.sh
+# source $HOME/.dotfiles/aliases/php.sh
 source $HOME/.dotfiles/aliases/postgres.sh
-source $HOME/.dotfiles/aliases/python.sh
+# source $HOME/.dotfiles/aliases/python.sh
 source $HOME/.dotfiles/aliases/redis.sh
 #source $HOME/.dotfiles/aliases/ruby.sh
 

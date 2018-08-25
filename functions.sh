@@ -28,6 +28,6 @@ function mkpub {
 
 # Readd ssh key
 # http://apple.stackexchange.com/a/254714/67470
-# ssh-add -A 2>/dev/null;
+ssh-add -K 2>/dev/null;
 
 # eval "$(rbenv init -)"

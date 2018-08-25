@@ -10,6 +10,10 @@ alias git_undo='git reset --soft HEAD\^'
 alias cdd='z'
 alias status='glances'
 alias h='history | grep'
+alias lg='lazygit'
+alias cat='bat'
+alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
+
 
 # clear down load history
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'

@@ -1,0 +1,1 @@
+export SLS_DEBUG=*
