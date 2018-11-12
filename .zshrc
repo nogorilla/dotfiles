@@ -44,7 +44,7 @@ source $HOME/.dotfiles/aliases/js.sh
 source $HOME/.dotfiles/aliases/mongo.sh
 # source $HOME/.dotfiles/aliases/php.sh
 source $HOME/.dotfiles/aliases/postgres.sh
-# source $HOME/.dotfiles/aliases/python.sh
+source $HOME/.dotfiles/aliases/python.sh
 source $HOME/.dotfiles/aliases/redis.sh
 #source $HOME/.dotfiles/aliases/ruby.sh
 
