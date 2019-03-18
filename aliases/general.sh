@@ -1,4 +1,5 @@
-alias ll='gls -al --si --color=auto --group-directories-first'
+# alias ll='gls -al --si --color=auto --group-directories-first'
+alias ll='exa -al --group-directories-first'
 
 alias copy="tr -d '\n' | pbcopy"
 alias cwd="pwd | tr -d '\n' | pbcopy"
@@ -15,6 +16,7 @@ alias cat='bat'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias ping='prettyping --nolegend'
 alias preview="fzf --preview 'bat --color \"always\" {}'"
+alias bump="bump --config /Users/gabe/.bump.json"
 export FZF_DEFAULT_OPTS="--bind='ctrl-o:execute(code {})+abort'"
 
 
