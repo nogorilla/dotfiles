@@ -1,4 +1,3 @@
-export SLS_DEBUG=*
 alias sd='sls deploy -s'
 alias sdf='sls deploy function -f'
 alias si='sls invoke -f'
