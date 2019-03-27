@@ -36,4 +36,6 @@ backup() {
   now=`date +'%Y%m%d'`
   brew list > ${BACKUP_DIR}/brew.${now}.txt 2>/dev/null;
   npm list -g --depth=0 > ${BACKUP_DIR}/npm_packages.${now}.txt 2>/dev/null;
+  cp ${HOME}/.ssh/config ${BACKUP_DIR}/.ssh.config.${now}
+  cp ${HOME}/.shuttle ${BACKUP_DIR}/.shuttle.${now}
 }
