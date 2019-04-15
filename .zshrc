@@ -53,7 +53,11 @@ alias h='history | grep'
 alias ll='exa -al --group-directories-first'
 alias lg='lazygit'
 alias path='open -a "Path Finder" ./'
+alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
+alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias ping='prettyping --nolegend'
+alias redis-start='redis-server /usr/local/etc/redis.conf'
+alias redis-stop='redis-cli -h 127.0.0.1 -p 6379 shutdown'
 alias st='open -a SourceTree'
 alias status='glances'
 alias weather='curl -4 wttr.in'
@@ -61,6 +65,8 @@ alias work='cd /Users/gabe/workspace/alchemy'
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 
 eval "$(thefuck --alias)"
+
+[ -f /Users/gabe/.travis/travis.sh ] && source /Users/gabe/.travis/travis.sh
 
 #######################
 ## --- functions --- ##
@@ -94,5 +100,18 @@ alias sl='sls logs -t -f'
 ## --- python --- ##
 ####################
 alias python='python3'
+# alias pip='pip3'
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+# export WORKON_HOME=~/.virtualenvs
+# source /usr/local/bin/virtualenvwrapper.sh
+# alias penv='python3.7 -m venv'
+# alias pm='python manage.py'
+# export PYTHONPATH="/usr/local/Cellar/python/3.7.0/bin/python3:$PYTHONPATH"
 
-eval $(thefuck --alias)
+# export PIP_REQUIRE_VIRTUALENV=true
+# export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
+# source /usr/local/bin/virtualenvwrapper_lazy.sh
+
+# gpip(){
+#    PIP_REQUIRE_VIRTUALENV="0" pip3 "$@"
+# }
