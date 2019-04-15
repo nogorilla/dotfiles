@@ -26,14 +26,12 @@ function mkpub {
   hub browse
 }
 
-# Readd ssh key
-# http://apple.stackexchange.com/a/254714/67470
-ssh-add -K 2>/dev/null;
-
-# eval "$(rbenv init -)"
-
 backup() {
   now=`date +'%Y%m%d'`
+  # TODO spawn child process
   brew list > ${BACKUP_DIR}/brew.${now}.txt 2>/dev/null;
   npm list -g --depth=0 > ${BACKUP_DIR}/npm_packages.${now}.txt 2>/dev/null;
+  cp ${HOME}/.ssh/config ${BACKUP_DIR}/.ssh.config.${now}
+  # TODO copy .ssh/keys
+  cp ${HOME}/.shuttle ${BACKUP_DIR}/.shuttle.${now}
 }
