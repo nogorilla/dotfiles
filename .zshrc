@@ -33,7 +33,7 @@ export NODE_ENV='development'
 export NVM_DIR="/Users/gabe/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
 [ -f /Users/gabe/.travis/travis.sh ] && source /Users/gabe/.travis/travis.sh
-
+export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 export PATH="$HOME/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 if [ -e /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
@@ -99,11 +99,9 @@ alias sl='sls logs -t -f'
 ####################
 ## --- python --- ##
 ####################
-alias python='python3'
-# alias pip='pip3'
-# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-# export WORKON_HOME=~/.virtualenvs
-# source /usr/local/bin/virtualenvwrapper.sh
+export WORKON_HOME=~/.virtualenvs
+export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+source /usr/local/bin/virtualenvwrapper.sh
 # alias penv='python3.7 -m venv'
 # alias pm='python manage.py'
 # export PYTHONPATH="/usr/local/Cellar/python/3.7.0/bin/python3:$PYTHONPATH"
@@ -115,3 +113,8 @@ alias python='python3'
 # gpip(){
 #    PIP_REQUIRE_VIRTUALENV="0" pip3 "$@"
 # }
+
+alias tf=terraform
+
+export LDFLAGS="-L/usr/local/opt/zlib/lib"
+export CPPFLAGS="-I/usr/local/opt/zlib/include"
