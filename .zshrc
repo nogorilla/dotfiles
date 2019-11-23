@@ -1,3 +1,4 @@
+
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -18,7 +19,8 @@ SPACESHIP_AWS_SYMBOL="☁️  "
 
 ENABLE_CORRECTION="false"
 
-plugins=(git gitfast zsh-syntax-highlighting brew common-aliases osx)
+
+plugins=(git gitfast brew common-aliases osx)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -31,10 +33,19 @@ export GIT_EDITOR='vim'
 export EDITOR='codee'
 export NODE_ENV='development'
 export NVM_DIR="/Users/gabe/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+
+lazy_source () {
+    eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
+}
+
+NVM_SOURCE=$HOME/.nvm/nvm.sh
+lazy_source nvm $NVM_SOURCE
+
+
 [ -f /Users/gabe/.travis/travis.sh ] && source /Users/gabe/.travis/travis.sh
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
-export PATH="$HOME/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+export PATH="$HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+
 if [ -e /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
 fi
@@ -63,17 +74,15 @@ alias status='glances'
 alias weather='curl -4 wttr.in'
 alias work='cd /Users/gabe/workspace/alchemy'
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
+alias tf=terraform
 
 eval "$(thefuck --alias)"
-
-[ -f /Users/gabe/.travis/travis.sh ] && source /Users/gabe/.travis/travis.sh
 
 #######################
 ## --- functions --- ##
 #######################
 function setaws {
   if [ ! -n "$1" ]; then
-    echo "Enter a region name"
   else
     export AWS_PROFILE=$1
   fi
@@ -88,10 +97,12 @@ alias si='sls invoke -f'
 alias sil='sls invoke local -f'
 alias sl='sls logs -t -f'
 
+export POSTMAN_DISABLE_GPU=true
+
 ################
 ## --- go --- ##
 ################
-# export GOPATH=$HOME/workspace/go # don't forget to change your path correctly!
+export GOPATH=$HOME/.go # don't forget to change your path correctly!
 # export GOROOT=/usr/local/opt/go/libexec
 # export PATH=$PATH:$GOPATH/bin
 # export PATH=$PATH:$GOROOT/bin
@@ -114,7 +125,10 @@ source /usr/local/bin/virtualenvwrapper.sh
 #    PIP_REQUIRE_VIRTUALENV="0" pip3 "$@"
 # }
 
-alias tf=terraform
-
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
+
+DISABLE_AUTO_TITLE="true"
+precmd() {
+  # sets the tab title to current dir
+}
