@@ -8,6 +8,7 @@ export ZSH=$HOME/.oh-my-zsh
 DISABLE_AUTO_TITLE="false"
 SPACESHIP_ROOT="/Users/gabe/.oh-my-zsh/custom/themes/spaceship-prompt"
 ZSH_THEME="spaceship"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 # Set Spaceship ZSH as a prompt
 # autoload -U promptinit; promptinit
 # prompt spaceship
@@ -35,16 +36,16 @@ export NODE_ENV='development'
 export NVM_DIR="/Users/gabe/.nvm"
 
 lazy_source () {
-    eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
+  eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
 }
 
 NVM_SOURCE=$HOME/.nvm/nvm.sh
 lazy_source nvm $NVM_SOURCE
 
-
 [ -f /Users/gabe/.travis/travis.sh ] && source /Users/gabe/.travis/travis.sh
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
-export PATH="$HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+export PATH="$HOME/bin:$JAVA_HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 
 if [ -e /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
@@ -75,6 +76,7 @@ alias weather='curl -4 wttr.in'
 alias work='cd /Users/gabe/workspace/alchemy'
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 alias tf=terraform
+alias tree='tree -C'
 
 eval "$(thefuck --alias)"
 
@@ -102,17 +104,22 @@ export POSTMAN_DISABLE_GPU=true
 ################
 ## --- go --- ##
 ################
-export GOPATH=$HOME/.go # don't forget to change your path correctly!
-# export GOROOT=/usr/local/opt/go/libexec
-# export PATH=$PATH:$GOPATH/bin
-# export PATH=$PATH:$GOROOT/bin
+export GOPATH=$HOME/workspace/go
+export GOROOT=/usr/local/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:$GOROOT/bin
 
 ####################
 ## --- python --- ##
 ####################
-export WORKON_HOME=~/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-source /usr/local/bin/virtualenvwrapper.sh
+# alias python=/usr/local/bin/python3
+# alias pip=/usr/local/bin/pip3
+if command -v pyenv 1>/dev/null 2>&1; then
+  eval "$(pyenv init -)"
+fi
+# export WORKON_HOME=~/.virtualenvs
+# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
+# source /usr/local/bin/virtualenvwrapper.sh
 # alias penv='python3.7 -m venv'
 # alias pm='python manage.py'
 # export PYTHONPATH="/usr/local/Cellar/python/3.7.0/bin/python3:$PYTHONPATH"
@@ -132,3 +139,7 @@ DISABLE_AUTO_TITLE="true"
 precmd() {
   # sets the tab title to current dir
 }
+
+# tabtab source for serverless package
+# uninstall by removing these lines
+[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
