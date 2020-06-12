@@ -31,7 +31,9 @@ backup() {
   # TODO spawn child process
   brew list > ${BACKUP_DIR}/brew.${now}.txt 2>/dev/null;
   npm list -g --depth=0 > ${BACKUP_DIR}/npm_packages.${now}.txt 2>/dev/null;
-  cp ${HOME}/.ssh/config ${BACKUP_DIR}/.ssh.config.${now}
+  cp ${HOME}/.ssh/config ${BACKUP_DIR}/ssh.config.${now}
+  cp ${HOME}/.aws/config ${BACKUP_DIR}/aws.config.${now}
+  cp ${HOME}/.aws/credentials ${BACKUP_DIR}/aws.credentials.${now}
   zip -Djqr ${BACKUP_DIR}/ssh.${now}.zip ${HOME}/.ssh
-  cp ${HOME}/.shuttle.json ${BACKUP_DIR}/.shuttle.json.${now}
+  cp ${HOME}/.shuttle.json ${BACKUP_DIR}/shuttle.json.${now}
 }
