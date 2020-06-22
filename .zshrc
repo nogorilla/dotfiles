@@ -1,29 +1,23 @@
-
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
 #########
 # THEMES
 #########
-DISABLE_AUTO_TITLE="false"
-SPACESHIP_ROOT="/Users/gabe/.oh-my-zsh/custom/themes/spaceship-prompt"
-ZSH_THEME="spaceship"
 # ZSH_THEME="powerlevel10k/powerlevel10k"
-# Set Spaceship ZSH as a prompt
-# autoload -U promptinit; promptinit
-# prompt spaceship
-SPACESHIP_DOCKER_SHOW="false"
-SPACESHIP_BATTERY_SHOW="true"
-SPACESHIP_BATTERY_THRESHOLD="50"
-SPACESHIP_AWS_PREFIX="AWS "
-SPACESHIP_AWS_SYMBOL="☁️  "
+eval "$(starship init zsh)"
+# # SPACESHIP_ROOT="/Users/gabe/.oh-my-zsh/custom/themes/spaceship-prompt"
+# # ZSH_THEME="spaceship"
+# SPACESHIP_DOCKER_SHOW="false"
+# SPACESHIP_BATTERY_SHOW="true"
+# SPACESHIP_BATTERY_THRESHOLD="50"
+# SPACESHIP_AWS_PREFIX="AWS "
+# SPACESHIP_AWS_SYMBOL="☁️  "
 
-ENABLE_CORRECTION="false"
+# ENABLE_CORRECTION="false"
 
+source ~/.dotfiles/.p10k.zsh
 
 plugins=(git gitfast brew common-aliases osx)
-
-source $ZSH/oh-my-zsh.sh
 
 source $HOME/.dotfiles/functions.sh
 if [ -e $HOME/.dotfiles/secret.sh ]; then
@@ -42,15 +36,12 @@ lazy_source () {
 NVM_SOURCE=$HOME/.nvm/nvm.sh
 lazy_source nvm $NVM_SOURCE
 
-[ -f /Users/gabe/.travis/travis.sh ] && source /Users/gabe/.travis/travis.sh
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH="$HOME/bin:$JAVA_HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-
 if [ -e /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
 fi
-
 alias ag='ag -p /Users/gabe/.agignore'
 alias cat='bat'
 alias cdd='z'
@@ -77,19 +68,6 @@ alias work='cd /Users/gabe/workspace/alchemy'
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 alias tf=terraform
 alias tree='tree -C'
-
-eval "$(thefuck --alias)"
-
-#######################
-## --- functions --- ##
-#######################
-function setaws {
-  if [ ! -n "$1" ]; then
-  else
-    export AWS_PROFILE=$1
-  fi
-}
-
 ########################
 ## --- serverless --- ##
 ########################
@@ -99,7 +77,16 @@ alias si='sls invoke -f'
 alias sil='sls invoke local -f'
 alias sl='sls logs -t -f'
 
-export POSTMAN_DISABLE_GPU=true
+eval "$(thefuck --alias)"
+#######################
+## --- functions --- ##
+#######################
+function setaws {
+  if [ ! -n "$1" ]; then
+  else
+    export AWS_PROFILE=$1
+  fi
+}
 
 ################
 ## --- go --- ##
@@ -135,11 +122,6 @@ fi
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 
-DISABLE_AUTO_TITLE="true"
-precmd() {
-  # sets the tab title to current dir
-}
-
-# tabtab source for serverless package
-# uninstall by removing these lines
-[[ -f ~/.config/tabtab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
+# # tabtab source for serverless package
+# # uninstall by removing these lines
+# [[ -f ~/.config/btab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
