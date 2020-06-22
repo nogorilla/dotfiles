@@ -1,0 +1,237 @@
+aom 2.0.0
+apr 1.7.0
+apr-util 1.6.1_3
+archey 1.6.0_1
+argon2 20190702_1
+aspell 0.60.8
+autoconf 2.69
+automake 1.16.2
+aws-elasticbeanstalk 3.18.1
+aws-sam-cli 0.52.0
+awscli 2.0.18
+bat 0.15.4
+boost 1.72.0_3
+brotli 1.0.7
+c-ares 1.16.1
+cairo 1.16.0_3
+ceres-solver 1.14.0_9 1.14.0_12
+cfitsio 3.480 3.450_1
+cmake 3.17.3
+coreutils 8.32
+curl 7.70.0
+curl-openssl 7.70.0
+dav1d 0.7.0
+dep 0.5.4
+diff-so-fancy 1.3.0
+dnsmasq 2.81
+docbook 5.1_1
+docbook-xsl 1.79.2_1
+eigen 3.3.7
+exa 0.9.0
+fd 8.1.1
+ffmpeg 4.2.3_1
+fftw 3.3.8_1
+flac 1.3.3
+fontconfig 2.13.1
+freetds 1.1.24 1.1.40
+freetype 2.10.1
+frei0r 1.7.0
+fribidi 1.0.9
+fselect 0.6.10
+fx 18.0.1
+fzf 0.21.1
+gawk 5.1.0
+gcc 9.3.0_1
+gd 2.3.0
+gdbm 1.18.1
+gdk-pixbuf 2.40.0_1
+gettext 0.20.1 0.20.2_1
+gflags 2.2.2
+gh 0.9.0
+ghostscript 9.52
+giflib 5.2.1
+git 2.27.0
+git-lfs 2.11.0
+glib 2.64.3
+glog 0.4.0
+gmp 6.2.0 6.1.2_2
+gnu-getopt 2.35.2
+gnutls 3.6.11.1 3.6.13_2
+go 1.14.3
+graphite2 1.3.14
+graphviz 2.44.0
+gron 0.6.0
+groonga 10.0.3 9.1.0
+gts 0.7.6_2
+harfbuzz 2.6.6_1
+hdf5 1.12.0
+htop 2.2.0_1
+httpd 2.4.43
+httpie 2.1.0
+hub 2.14.2
+hwloc 2.1.0 2.2.0
+icu4c 67.1
+ilmbase 2.5.1
+imagemagick 7.0.10-16_1 7.0.8-40_1 7.0.9-7 7.0.9-14
+imap-uw 2007f_1
+ipython 7.15.0
+ipython@5 5.8.0
+isl 0.22 0.22.1
+jansson 2.13.1 2.12
+jasper 2.0.16_1
+jemalloc 5.2.1_1
+jmeter 5.3
+jpeg 9d 9c
+jq 1.6
+jupyterlab 2.1.4
+krb5 1.18.2
+lame 3.100
+lazydocker 0.9
+lazygit 0.20.4
+leptonica 1.79.0
+libass 0.14.0_1
+libbluray 1.2.0
+libcroco 0.6.13_1
+libde265 1.0.5
+libev 4.31 4.33
+libevent 2.1.11_1
+libexif 0.6.22
+libffi 3.3
+libgpg-error 1.38
+libgsf 1.14.47
+libheif 1.6.2_2 1.6.1
+libidn 1.35
+libidn2 2.3.0
+libimagequant 2.12.6
+libksba 1.4.0
+liblqr 0.4.2_1
+libmatio 1.5.17_2
+libmetalink 0.1.3
+libmpc 1.1.0
+libogg 1.3.4
+libomp 9.0.0 10.0.0
+libpng 1.6.37
+libpq 12.3
+librsvg 2.46.4 2.48.6
+libsamplerate 0.1.9_1
+libsndfile 1.0.28
+libsodium 1.0.18_1
+libsoxr 0.1.3
+libssh2 1.9.0_1
+libtasn1 4.15.0 4.16.0
+libtiff 4.1.0
+libtool 2.4.6_1
+libunistring 0.9.10
+libvidstab 1.1.0
+libvorbis 1.3.6
+libvpx 1.8.2
+libxml2 2.9.10_1
+libyaml 0.2.5
+libzip 1.5.2 1.6.1
+little-cms2 2.10
+lua 5.3.5_1
+lzo 2.10
+mackup 0.8.28_1
+mariadb 10.4.13
+mcrypt 2.6.8
+mecab 0.996
+mecab-ipadic 2.7.0-20070801
+metis 5.1.0
+mhash 0.9.9.9
+mkcert 1.4.1
+mongodb 4.0.3_1
+mozjpeg 3.3.1_1
+mpfr 4.0.2
+msgpack 3.2.1
+ncdu 1.15
+ncurses 6.2
+netpbm 10.86.13
+nettle 3.6
+nghttp2 1.41.0
+nnn 3.2
+node 13.5.0 12.1.0 14.4.0
+nspr 4.24 4.25
+nss 3.53
+numpy 1.18.4
+numpy@1.16 1.16.4_1 1.16.6_1
+oniguruma 6.9.5-rev1 6.9.4
+open-mpi 4.0.3
+openblas 0.3.9
+opencore-amr 0.1.5
+opencv 4.3.0_4 4.2.0_1
+opencv@2 2.4.13.7_10
+openexr 2.5.1
+openjpeg 2.3.1
+openldap 2.4.50
+openslide 3.4.1_5
+openssl 1.0.2s
+openssl@1.1 1.1.1g
+opus 1.3.1
+orc 0.4.31
+p11-kit 0.23.18.1 0.23.20_1
+pandoc 2.9.2.1
+pango 1.44.7
+pcre 8.43 8.44
+pcre2 10.35
+perl 5.30.3
+pgcli 3.0.0
+php 7.4.6_1
+php@7.1 7.1.27
+pixman 0.40.0
+pkg-config 0.29.2_3 0.29.2
+poppler 0.89.0 0.84.0 0.81.0
+postgresql 12.3_4
+postgresql@9.6 9.6.18_2
+prettyping 1.0.1
+protobuf 3.12.2
+pyenv 1.2.18
+python 3.7.7
+python@2 2.7.17_1
+python@3.8 3.8.3
+qt 5.14.2
+rbenv 1.1.2
+readline 8.0.4
+redis 6.0.4_1
+rtmpdump 2.4+20151223_1
+rtv 1.27.0_2
+rubberband 1.8.2_1
+ruby 2.7.1_2
+ruby-build 20200520
+saw 0.2.2
+sdl2 2.0.12_1 2.0.10
+sentry-cli 1.54.0
+shared-mime-info 2.0
+snappy 1.1.8 1.1.7_1
+speex 1.2.0
+sqlite 3.32.1
+srt 1.4.1
+suite-sparse 5.7.2 5.6.0
+swagger-codegen 3.0.20
+szip 2.1.1_1
+tbb 2020_U2
+terraform 0.12.26
+tesseract 4.1.1
+the_silver_searcher 2.2.0
+thefuck 3.30
+theora 1.1.1
+tidy-html5 5.6.0
+tig 2.5.1
+travis 1.9.1
+tree 1.8.0
+unbound 1.9.6 1.9.2 1.9.5 1.10.1
+unixodbc 2.3.7
+vim 8.2.0850_1
+vips 8.9.2_4
+webp 1.1.0
+wget 1.20.3_2
+x264 r2917_1 r2999
+x265 3.4 3.2.1
+xmlto 0.0.28
+xvid 1.3.7
+xz 5.2.5
+yarn 1.22.4
+youtube-dl 2020.05.29
+z 1.9
+zeromq 4.3.2
+zlib 1.2.11
+zsh 5.8
