@@ -1,9 +1,9 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
+
 #########
 # THEMES
 #########
-# ZSH_THEME="powerlevel10k/powerlevel10k"
 eval "$(starship init zsh)"
 # # SPACESHIP_ROOT="/Users/gabe/.oh-my-zsh/custom/themes/spaceship-prompt"
 # # ZSH_THEME="spaceship"
@@ -15,26 +15,29 @@ eval "$(starship init zsh)"
 
 # ENABLE_CORRECTION="false"
 
-source ~/.dotfiles/.p10k.zsh
+# source ~/.dotfiles/.p10k.zsh
 
 plugins=(git gitfast brew common-aliases osx)
-
-source $HOME/.dotfiles/functions.sh
-if [ -e $HOME/.dotfiles/secret.sh ]; then
-  source $HOME/.dotfiles/secret.sh
-fi
+source $ZSH/oh-my-zsh.sh
+# source $HOME/.dotfiles/functions.sh
+# if [ -e $HOME/.dotfiles/secret.sh ]; then
+#   source $HOME/.dotfiles/secret.sh
+# fi
 
 export GIT_EDITOR='vim'
 export EDITOR='codee'
 export NODE_ENV='development'
 export NVM_DIR="/Users/gabe/.nvm"
 
-lazy_source () {
-  eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
-}
+# lazy_source () {
+#   eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
+# }
 
-NVM_SOURCE=$HOME/.nvm/nvm.sh
-lazy_source nvm $NVM_SOURCE
+# NVM_SOURCE=$HOME/.nvm/nvm.sh
+# [ -s "$NVM_SOURCE" ] && \. "$NVM_SOURCE" # This loads nvm
+# lazy_source nvm $NVM_SOURCE
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -42,6 +45,7 @@ export PATH="$HOME/bin:$JAVA_HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/s
 if [ -e /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
 fi
+
 alias ag='ag -p /Users/gabe/.agignore'
 alias cat='bat'
 alias cdd='z'
@@ -78,6 +82,7 @@ alias sil='sls invoke local -f'
 alias sl='sls logs -t -f'
 
 eval "$(thefuck --alias)"
+
 #######################
 ## --- functions --- ##
 #######################
@@ -104,6 +109,7 @@ export PATH=$PATH:$GOROOT/bin
 if command -v pyenv 1>/dev/null 2>&1; then
   eval "$(pyenv init -)"
 fi
+
 # export WORKON_HOME=~/.virtualenvs
 # export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
 # source /usr/local/bin/virtualenvwrapper.sh
@@ -118,6 +124,12 @@ fi
 # gpip(){
 #    PIP_REQUIRE_VIRTUALENV="0" pip3 "$@"
 # }
+
+#####################
+## --- flutter --- ##
+#####################
+alias android="open -a /Applications/Android\ Studio.app ."
+export PATH=$PATH:/Users/gabe/workspace/sdk/flutter/bin
 
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
