@@ -29,6 +29,7 @@ function mkpub {
 backup() {
   now=`date +'%Y%m%d'`
   # TODO spawn child process
+  BACKUP_DIR="/Users/gabe/Dropbox/Backups"
   brew list > ${BACKUP_DIR}/brew.${now}.txt 2>/dev/null;
   npm list -g --depth=0 > ${BACKUP_DIR}/npm_packages.${now}.txt 2>/dev/null;
   cp ${HOME}/.ssh/config ${BACKUP_DIR}/ssh.config.${now}

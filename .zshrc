@@ -19,7 +19,7 @@ eval "$(starship init zsh)"
 
 plugins=(git gitfast brew common-aliases osx)
 source $ZSH/oh-my-zsh.sh
-# source $HOME/.dotfiles/functions.sh
+source $HOME/.dotfiles/functions.sh
 # if [ -e $HOME/.dotfiles/secret.sh ]; then
 #   source $HOME/.dotfiles/secret.sh
 # fi
