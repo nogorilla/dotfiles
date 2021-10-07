@@ -20,14 +20,15 @@ eval "$(starship init zsh)"
 plugins=(git gitfast brew common-aliases osx)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/functions.sh
-# if [ -e $HOME/.dotfiles/secret.sh ]; then
-#   source $HOME/.dotfiles/secret.sh
-# fi
+if [ -e $HOME/.dotfiles/secret.sh ]; then
+  source $HOME/.dotfiles/secret.sh
+fi
 
 export GIT_EDITOR='vim'
 export EDITOR='codee'
 export NODE_ENV='development'
 export NVM_DIR="/Users/gabe/.nvm"
+# export DISABLE_AUTO_TITLE="true"
 
 # lazy_source () {
 #   eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
@@ -60,11 +61,7 @@ alias h='history | grep'
 alias ll='exa -al --group-directories-first'
 alias lg='lazygit'
 alias path='open -a "Path Finder" ./'
-alias pg-start="launchctl load ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
-alias pg-stop="launchctl unload ~/Library/LaunchAgents/homebrew.mxcl.postgresql.plist"
 alias ping='prettyping --nolegend'
-alias redis-start='redis-server /usr/local/etc/redis.conf'
-alias redis-stop='redis-cli -h 127.0.0.1 -p 6379 shutdown'
 alias st='open -a SourceTree'
 alias status='glances'
 alias weather='curl -4 wttr.in'
@@ -72,6 +69,9 @@ alias work='cd /Users/gabe/workspace/alchemy'
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 alias tf=terraform
 alias tree='tree -C'
+alias sqlite=sqlite3
+alias tv=tidy-viewer
+
 ########################
 ## --- serverless --- ##
 ########################
@@ -106,9 +106,20 @@ export PATH=$PATH:$GOROOT/bin
 ####################
 # alias python=/usr/local/bin/python3
 # alias pip=/usr/local/bin/pip3
-if command -v pyenv 1>/dev/null 2>&1; then
-  eval "$(pyenv init -)"
-fi
+# if command -v pyenv 1>/dev/null 2>&1; then
+#   eval "$(pyenv init -)"
+# fi
+# eval "$(pyenv init -)"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+
+##################
+## --- ruby --- ##
+##################
+export GEM_HOME=$HOME/gems
+export PATH=$HOME/gems/bin:$PATH
+
 
 # export WORKON_HOME=~/.virtualenvs
 # export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
@@ -129,10 +140,12 @@ fi
 ## --- flutter --- ##
 #####################
 alias android="open -a /Applications/Android\ Studio.app ."
-export PATH=$PATH:/Users/gabe/workspace/sdk/flutter/bin
+export PATH=$PATH:/Users/gabe/workspace/sdk/flutter/bin:/usr/local/opt/sqlite/bin
 
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
+
+export OPENAUDIBLE_HOME="/Users/gabe/Downloads/OpenAudible"
 
 # # tabtab source for serverless package
 # # uninstall by removing these lines

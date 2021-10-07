@@ -1,11 +1,10 @@
 [character]      # The name of the module we are configuring is "character"
-symbol = "➜"     # The "symbol" segment is being set to "➜"
 
 [package]
 display_private = true
 
 [[battery.display]]
-thresold = 10
+threshold = 10
 style = "bold red"
 
 [[battery.display]]
