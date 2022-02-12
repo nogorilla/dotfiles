@@ -17,7 +17,7 @@ eval "$(starship init zsh)"
 
 # source ~/.dotfiles/.p10k.zsh
 
-plugins=(git gitfast brew common-aliases osx)
+plugins=(git gitfast brew common-aliases macos)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/functions.sh
 if [ -e $HOME/.dotfiles/secret.sh ]; then
@@ -28,18 +28,10 @@ export GIT_EDITOR='vim'
 export EDITOR='codee'
 export NODE_ENV='development'
 export NVM_DIR="/Users/gabe/.nvm"
-# export DISABLE_AUTO_TITLE="true"
 
-# lazy_source () {
-#   eval "$1 () { [ -f $2 ] && source $2 && $1 \$@ }"
-# }
-
-# NVM_SOURCE=$HOME/.nvm/nvm.sh
-# [ -s "$NVM_SOURCE" ] && \. "$NVM_SOURCE" # This loads nvm
-# lazy_source nvm $NVM_SOURCE
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export PATH="$HOME/bin:$JAVA_HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
@@ -146,7 +138,8 @@ export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 
 export OPENAUDIBLE_HOME="/Users/gabe/Downloads/OpenAudible"
-
+export PATH="/usr/local/opt/autoconf@2.69/bin:$PATH"
+export MACOSX_DEPLOYMENT_TARGET=10.0
 # # tabtab source for serverless package
 # # uninstall by removing these lines
 # [[ -f ~/.config/btab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
