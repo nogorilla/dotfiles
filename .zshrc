@@ -1,6 +1,6 @@
 # Path to your oh-my-zsh installation.
 export ZSH=$HOME/.oh-my-zsh
-
+typeset -U path
 #########
 # THEMES
 #########
@@ -15,8 +15,6 @@ eval "$(starship init zsh)"
 
 # ENABLE_CORRECTION="false"
 
-# source ~/.dotfiles/.p10k.zsh
-
 plugins=(git gitfast brew common-aliases macos)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/functions.sh
@@ -27,16 +25,44 @@ fi
 export GIT_EDITOR='vim'
 export EDITOR='codee'
 export NODE_ENV='development'
-export NVM_DIR="/Users/gabe/.nvm"
+export NVM_DIR="$HOME/.nvm"
+################
+## --- go --- ##
+################
+export GOPATH=$HOME/.go
+export GOROOT=/opt/homebrew/opt/go/libexec
+export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
+
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+[ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
+[ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
-export PATH="$HOME/bin:$JAVA_HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+# export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+path+=(
+  "$HOME/bin"
+  "/usr/local/opt/gnu-getopt/bin"
+  "/usr/local/sbin"
+  "/usr/local/opt/openssl/bin"
+  "/usr/local/bin"
+  "/Applications/Visual Studio Code.app/Contents/Resources/app/bin"
+  "/usr/local/opt/autoconf@2.69/bin"
+  "/opt/homebrew/opt/openjdk/bin"
+  "$GOPATH/bin"
+  "$GOROOT/bin"
+)
+alias ep="echo ${PATH} | sed -e $'s/:/\\\n/g'"
+# export PATH="$HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 if [ -e /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
+fi
+
+if [ -e /opt/homebrew/etc/profile.d/z.sh ]; then
+  . /opt/homebrew/etc/profile.d/z.sh
 fi
 
 alias ag='ag -p /Users/gabe/.agignore'
@@ -57,7 +83,7 @@ alias ping='prettyping --nolegend'
 alias st='open -a SourceTree'
 alias status='glances'
 alias weather='curl -4 wttr.in'
-alias work='cd /Users/gabe/workspace/alchemy'
+alias work='cd /Users/gabe/workspace/procter-gamble'
 alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 alias tf=terraform
 alias tree='tree -C'
@@ -85,23 +111,9 @@ function setaws {
   fi
 }
 
-################
-## --- go --- ##
-################
-export GOPATH=$HOME/workspace/go
-export GOROOT=/usr/local/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:$GOROOT/bin
-
 ####################
 ## --- python --- ##
 ####################
-# alias python=/usr/local/bin/python3
-# alias pip=/usr/local/bin/pip3
-# if command -v pyenv 1>/dev/null 2>&1; then
-#   eval "$(pyenv init -)"
-# fi
-# eval "$(pyenv init -)"
 eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 export PYENV_VIRTUALENV_DISABLE_PROMPT=1
@@ -109,37 +121,19 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 ##################
 ## --- ruby --- ##
 ##################
-export GEM_HOME=$HOME/gems
-export PATH=$HOME/gems/bin:$PATH
+# export GEM_HOME=$HOME/gems
+# export PATH=$HOME/gems/bin:$PATH
 
+export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
 
-# export WORKON_HOME=~/.virtualenvs
-# export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python3
-# source /usr/local/bin/virtualenvwrapper.sh
-# alias penv='python3.7 -m venv'
-# alias pm='python manage.py'
-# export PYTHONPATH="/usr/local/Cellar/python/3.7.0/bin/python3:$PYTHONPATH"
-
-# export PIP_REQUIRE_VIRTUALENV=true
-# export VIRTUALENVWRAPPER_SCRIPT=/usr/local/bin/virtualenvwrapper.sh
-# source /usr/local/bin/virtualenvwrapper_lazy.sh
-
-# gpip(){
-#    PIP_REQUIRE_VIRTUALENV="0" pip3 "$@"
-# }
-
-#####################
-## --- flutter --- ##
-#####################
-alias android="open -a /Applications/Android\ Studio.app ."
-export PATH=$PATH:/Users/gabe/workspace/sdk/flutter/bin:/usr/local/opt/sqlite/bin
 
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
 
 export OPENAUDIBLE_HOME="/Users/gabe/Downloads/OpenAudible"
-export PATH="/usr/local/opt/autoconf@2.69/bin:$PATH"
-export MACOSX_DEPLOYMENT_TARGET=10.0
+# export PATH="/usr/local/opt/autoconf@2.69/bin:/opt/homebrew/opt/openjdk/bin:$PATH"
+# export MACOSX_DEPLOYMENT_TARGET=10.0
+export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
 # # tabtab source for serverless package
 # # uninstall by removing these lines
 # [[ -f ~/.config/btab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
