@@ -1,4 +1,5 @@
 # Path to your oh-my-zsh installation.
+ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
 typeset -U path
 #########
@@ -15,7 +16,15 @@ eval "$(starship init zsh)"
 
 # ENABLE_CORRECTION="false"
 
-plugins=(git gitfast brew common-aliases macos)
+# mkdir -p ~/.zsh
+# curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+# curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
+fpath=(~/.zsh $fpath)
+
+autoload -Uz compinit && compinit
+
+plugins=(git git-extras gitfast brew common-aliases macos)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/functions.sh
 if [ -e $HOME/.dotfiles/secret.sh ]; then
@@ -26,21 +35,28 @@ export GIT_EDITOR='vim'
 export EDITOR='codee'
 export NODE_ENV='development'
 export NVM_DIR="$HOME/.nvm"
+
+# fpath=(~/.zsh $fpath)
+
 ################
 ## --- go --- ##
 ################
 export GOPATH=$HOME/.go
 export GOROOT=/opt/homebrew/opt/go/libexec
-export PATH=$PATH:$GOPATH/bin:$GOROOT/bin
-
 
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
+# if type brew &>/dev/null; then
+#     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
 
+#     autoload -Uz compinit
+#     compinit
+#   fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 path+=(
@@ -55,7 +71,9 @@ path+=(
   "$GOPATH/bin"
   "$GOROOT/bin"
 )
+
 alias ep="echo ${PATH} | sed -e $'s/:/\\\n/g'"
+
 # export PATH="$HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
 if [ -e /usr/local/etc/profile.d/z.sh ]; then
   . /usr/local/etc/profile.d/z.sh
@@ -134,6 +152,3 @@ export OPENAUDIBLE_HOME="/Users/gabe/Downloads/OpenAudible"
 # export PATH="/usr/local/opt/autoconf@2.69/bin:/opt/homebrew/opt/openjdk/bin:$PATH"
 # export MACOSX_DEPLOYMENT_TARGET=10.0
 export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
-# # tabtab source for serverless package
-# # uninstall by removing these lines
-# [[ -f ~/.config/btab/__tabtab.zsh ]] && . ~/.config/tabtab/__tabtab.zsh || true
