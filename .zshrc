@@ -19,12 +19,10 @@ eval "$(starship init zsh)"
 # mkdir -p ~/.zsh
 # curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 # curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
-zstyle ':completion:*:*:git:*' script ~/.zsh/git-completion.bash
 fpath=(~/.zsh $fpath)
-
 autoload -Uz compinit && compinit
+plugins=(git gitfast brew common-aliases macos)
 
-plugins=(git git-extras gitfast brew common-aliases macos)
 source $ZSH/oh-my-zsh.sh
 source $HOME/.dotfiles/functions.sh
 if [ -e $HOME/.dotfiles/secret.sh ]; then
@@ -72,12 +70,10 @@ path+=(
   "$GOROOT/bin"
 )
 
-alias ep="echo ${PATH} | sed -e $'s/:/\\\n/g'"
 
-# export PATH="$HOME/bin:/usr/local/opt/gnu-getopt/bin:/usr/local/sbin:/usr/local/opt/openssl/bin:/usr/local/bin:/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
-if [ -e /usr/local/etc/profile.d/z.sh ]; then
-  . /usr/local/etc/profile.d/z.sh
-fi
+# if [ -e /usr/local/etc/profile.d/z.sh ]; then
+#   . /usr/local/etc/profile.d/z.sh
+# fi
 
 if [ -e /opt/homebrew/etc/profile.d/z.sh ]; then
   . /opt/homebrew/etc/profile.d/z.sh
@@ -86,27 +82,28 @@ fi
 alias ag='ag -p /Users/gabe/.agignore'
 alias cat='bat'
 alias cdd='z'
+alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 alias codee='code .'
 alias copy="tr -d '\n' | pbcopy"
 alias cwd="pwd | tr -d '\n' | pbcopy"
 alias dc='docker-compose'
 alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
-alias git=hub
+alias ep="echo ${PATH} | sed -e $'s/:/\\\n/g'"
 alias git_undo='git reset --soft HEAD\^'
+alias git=hub
 alias h='history | grep'
-alias ll='exa -al --group-directories-first'
 alias lg='lazygit'
+alias ll='exa -al --group-directories-first'
 alias path='open -a "Path Finder" ./'
 alias ping='prettyping --nolegend'
+alias sqlite=sqlite3
 alias st='open -a SourceTree'
 alias status='glances'
-alias weather='curl -4 wttr.in'
-alias work='cd /Users/gabe/workspace/procter-gamble'
-alias clear-downloads='sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* "delete from LSQuarantineEvent"'
 alias tf=terraform
 alias tree='tree -C'
-alias sqlite=sqlite3
 alias tv=tidy-viewer
+alias weather='curl -4 wttr.in'
+alias work='cd /Users/gabe/workspace/procter-gamble'
 
 ########################
 ## --- serverless --- ##
