@@ -16,14 +16,12 @@ eval "$(starship init zsh)"
 
 # ENABLE_CORRECTION="false"
 
-# mkdir -p ~/.zsh
 # curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 # curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
+plugins=(git git-extras gitfast brew common-aliases macos)
 fpath=(~/.zsh $fpath)
-autoload -Uz compinit && compinit
-plugins=(git gitfast brew common-aliases macos)
-
 source $ZSH/oh-my-zsh.sh
+
 source $HOME/.dotfiles/functions.sh
 if [ -e $HOME/.dotfiles/secret.sh ]; then
   source $HOME/.dotfiles/secret.sh
@@ -35,24 +33,11 @@ export NODE_ENV='development'
 export NVM_DIR="$HOME/.nvm"
 
 # fpath=(~/.zsh $fpath)
-
-################
-## --- go --- ##
-################
-export GOPATH=$HOME/.go
-export GOROOT=/opt/homebrew/opt/go/libexec
-
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
-# if type brew &>/dev/null; then
-#     FPATH=$(brew --prefix)/share/zsh-completions:$FPATH
-
-#     autoload -Uz compinit
-#     compinit
-#   fi
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
@@ -68,6 +53,7 @@ path+=(
   "/opt/homebrew/opt/openjdk/bin"
   "$GOPATH/bin"
   "$GOROOT/bin"
+  "$HOME/.spicetify"
 )
 
 
@@ -126,6 +112,12 @@ function setaws {
   fi
 }
 
+################
+## --- go --- ##
+################
+export GOPATH=$HOME/.go
+export GOROOT=/opt/homebrew/opt/go/libexec
+
 ####################
 ## --- python --- ##
 ####################
@@ -139,13 +131,12 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # export GEM_HOME=$HOME/gems
 # export PATH=$HOME/gems/bin:$PATH
 
-export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
 
+export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
 
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
-
 export OPENAUDIBLE_HOME="/Users/gabe/Downloads/OpenAudible"
 # export PATH="/usr/local/opt/autoconf@2.69/bin:/opt/homebrew/opt/openjdk/bin:$PATH"
 # export MACOSX_DEPLOYMENT_TARGET=10.0
-export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
+# export HOMEBREW_NO_INSTALL_CLEANUP=TRUE
