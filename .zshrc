@@ -16,29 +16,32 @@ eval "$(starship init zsh)"
 
 # ENABLE_CORRECTION="false"
 
-# curl -o ~/.zsh/git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
+# curl -o ~/.zsh/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 # curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
 plugins=(git git-extras gitfast brew common-aliases macos)
-fpath=(~/.zsh $fpath)
-source $ZSH/oh-my-zsh.sh
+fpath=($HOME/.zsh $fpath)
+zstyle ':completion:*:*:git:*' script $HOME/.zsh/.git-completion.bash
 
 source $HOME/.dotfiles/functions.sh
 if [ -e $HOME/.dotfiles/secret.sh ]; then
   source $HOME/.dotfiles/secret.sh
 fi
+source $ZSH/oh-my-zsh.sh
 
 export GIT_EDITOR='vim'
 export EDITOR='codee'
 export NODE_ENV='development'
 export NVM_DIR="$HOME/.nvm"
 
-# fpath=(~/.zsh $fpath)
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  --no-use # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 
 [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"  # This loads nvm
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm"  # This loads nvm bash_completion
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+if [ -f /opt/local/etc/profile.d/bash_completion.sh ]; then
+  . /opt/local/etc/profile.d/bash_completion.sh
+fi
 
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -54,6 +57,7 @@ path+=(
   "$GOPATH/bin"
   "$GOROOT/bin"
   "$HOME/.spicetify"
+  "$HOME/.rover/bin"
 )
 
 

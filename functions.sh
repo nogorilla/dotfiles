@@ -38,3 +38,41 @@ backup() {
   zip -Djqr ${BACKUP_DIR}/ssh.${now}.zip ${HOME}/.ssh
   cp ${HOME}/.shuttle.json ${BACKUP_DIR}/shuttle.json.${now}
 }
+
+_jwt () {
+  local jwtheader jwtbody jwtsignature headerpads bodypads signaturepads i
+  [[ "${1}" ]] || { echo "usage: _jwt <token>" >&2; return 1; }
+  jwtheader="${1/%.*}"
+  jwtbody="${1/#${jwtheader}.}"
+  jwtbody="${jwtbody/%.*}"
+  jwtsignature="${1/#${jwtheader}.${jwtbody}.}"
+  jwtheader="${jwtheader//+/-}"
+  jwtheader="${jwtheader//\//_}"
+  jwtbody="${jwtbody//+/-}"
+  jwtbody="${jwtbody//\//_}"
+  jwtsignature="${jwtsignature//+/-}"
+  jwtsignature="${jwtsignature//\//_}"
+  headerpads=$((4 - $((${#jwtheader} % 4))))
+  bodypads=$((4 - $((${#jwtbody} % 4))))
+  signaturepads=$((4 - $((${#jwtsignature} % 4))))
+  (( headerpads == 4 )) || { for (( i=0; i < headerpads; i++)); do jwtheader+="="; done; }
+  (( bodypads == 4 )) || { for (( i=0; i < bodypads; i++)); do jwtbody+="="; done; }
+  (( signaturepads == 4 )) || { for (( i=0; i < signaturepads; i++)); do jwtsignature+="="; done; }
+  printf '%s' "${jwtheader}" | base64 -d | jq .
+  printf '\n'
+  printf '%s' "${jwtbody}" | base64 -d | jq .
+  printf '\n'
+  printf '%s' "${jwtsignature}"
+  printf '\n'
+  return 0
+}
+
+convert() {
+  filename="${1%.*}"
+  target="${filename}.mp4"
+  ffmpeg -i $1 -c:v libx264 -c:a aac -strict experimental -b:a 192k $target
+}
+
+convertall() {
+  for f in `find . -type f -name '*.webm'`; do convert $f; done
+}
