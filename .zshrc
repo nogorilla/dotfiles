@@ -88,7 +88,6 @@ alias path='open -a "Path Finder" ./'
 alias ping='prettyping --nolegend'
 alias sqlite=sqlite3
 alias st='open -a SourceTree'
-alias status='glances'
 alias tf=terraform
 alias tree='tree -C'
 alias tv=tidy-viewer
@@ -115,6 +114,8 @@ function setaws {
     export AWS_PROFILE=$1
   fi
 }
+export AWS_PAGER=""
+export LESS="-F -X -R"
 
 ################
 ## --- go --- ##
@@ -136,7 +137,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # export PATH=$HOME/gems/bin:$PATH
 
 
-export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX12.3.sdk
+export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.sdk
 
 export LDFLAGS="-L/usr/local/opt/zlib/lib"
 export CPPFLAGS="-I/usr/local/opt/zlib/include"
