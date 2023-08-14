@@ -1,8 +1,6 @@
 # Path to your oh-my-zsh installation.
 ZSH_DISABLE_COMPFIX=true
 export ZSH=$HOME/.oh-my-zsh
-source $ZSH/oh-my-zsh.sh
-
 typeset -U path
 #########
 # THEMES
@@ -21,7 +19,7 @@ eval "$(starship init zsh)"
 
 # curl -o ~/.zsh/.git-completion.bash https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.bash
 # curl -o ~/.zsh/_git https://raw.githubusercontent.com/git/git/master/contrib/completion/git-completion.zsh
-plugins=(git git-extras gitfast brew common-aliases macos fzf )
+plugins=(git git-extras gitfast brew common-aliases macos fzf)
 fpath=($HOME/.zsh $fpath)
 autoload -Uz compinit && compinit
 zstyle ':completion:*:*:git:*' script $HOME/.zsh/.git-completion.bash
@@ -30,6 +28,7 @@ source $HOME/.dotfiles/functions.sh
 if [ -e $HOME/.dotfiles/secret.sh ]; then
   source $HOME/.dotfiles/secret.sh
 fi
+source $ZSH/oh-my-zsh.sh
 
 source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
