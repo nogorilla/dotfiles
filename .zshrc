@@ -35,7 +35,6 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export GIT_EDITOR='vim'
 export EDITOR='codee'
 export NVM_DIR="$HOME/.nvm"
-export GOOGLE_APPLICATION_CREDENTIALS=$HOME/ls-gateway-stage-5a17-fe9e2ee6820c.json
 export NODE_ENV=development
 export ENVIRONMENT=development
 
@@ -70,10 +69,10 @@ alias du="ncdu --color dark -rr -x --exclude .git --exclude node_modules"
 alias ep="echo ${PATH} | sed -e $'s/:/\\\n/g'"
 alias git_undo='git reset --soft HEAD\^'
 # alias git=hub
-alias h='history | grep'
+alias h='history -i | grep'
 alias ld='lazydocker'
 alias lg='lazygit'
-alias ll='exa -al --group-directories-first'
+alias ll='lsd -al --group-directories-first'
 alias path='open -a "Path Finder" ./'
 alias ping='prettyping --nolegend'
 alias sqlite=sqlite3
@@ -83,6 +82,29 @@ alias tree='tree -C'
 alias tv=tidy-viewer
 alias weather='curl -4 wttr.in'
 alias work='cd /Users/gabe/workspace/procter-gamble'
+
+#####################
+## --- history --- ##
+#####################
+# https://martinheinz.dev/blog/110
+HISTSIZE=10000000
+SAVEHIST=10000000
+HIST_STAMPS="yyyy-mm-dd"
+HISTORY_IGNORE="(ls|cd|pwd|exit|cd)*"
+export FZF_DEFAULT_COMMAND='ag --hidden -g ""'
+
+setopt EXTENDED_HISTORY      # Write the history file in the ':start:elapsed;command' format.
+setopt INC_APPEND_HISTORY    # Write to the history file immediately, not when the shell exits.
+setopt SHARE_HISTORY         # Share history between all sessions.
+setopt HIST_IGNORE_DUPS      # Do not record an event that was just recorded again.
+setopt HIST_IGNORE_ALL_DUPS  # Delete an old recorded event if a new event is a duplicate.
+setopt HIST_IGNORE_SPACE     # Do not record an event starting with a space.
+setopt HIST_SAVE_NO_DUPS     # Do not write a duplicate event to the history file.
+setopt HIST_VERIFY           # Do not execute immediately upon history expansion.
+setopt APPEND_HISTORY        # append to history file (Default)
+setopt HIST_NO_STORE         # Don't store history commands
+setopt HIST_REDUCE_BLANKS    # Remove superfluous blanks from each command line being added to the history.
+
 
 ##################
 ## --- asdf --- ##
@@ -117,13 +139,14 @@ export LESS="-F -X -R"
 ################
 export GOPATH=$HOME/.go
 export GOROOT=/opt/homebrew/opt/go/libexec
+# export GOTOOLCHAIN=/Users/gabe/.go/pkg/mod/golang.org/toolchain@v0.0.1-go1.21.5.darwin-arm64/pkg/tool/darwin_arm64
 
 ####################
 ## --- python --- ##
 ####################
-# eval "$(pyenv init -)"
-# eval "$(pyenv virtualenv-init -)"
-# export PYENV_VIRTUALENV_DISABLE_PROMPT=1
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
+export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 
 ##################
 ## --- ruby --- ##
@@ -134,7 +157,7 @@ export GOROOT=/opt/homebrew/opt/go/libexec
 # export PATH=$HOME/gems/bin:$PATH
 
 
-export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.sdk
+export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.sdk
 
 # export LDFLAGS="-L/usr/local/opt/zlib/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"
@@ -145,6 +168,7 @@ export OPENAUDIBLE_HOME="/Users/gabe/Downloads/OpenAudible"
 
 path+=(
   "$HOME/bin"
+  "/opt/homebrew/opt/go/bin"
   "/usr/local/opt/gnu-getopt/bin"
   "/usr/local/sbin"
   "/usr/local/opt/openssl/bin"
@@ -160,6 +184,7 @@ path+=(
   "$HOME/.pub-cache/bin"
 )
 
+CGO_CFLAGS=-mmacosx-version-min=10.12
 # The next line updates PATH for the Google Cloud SDK.
 if [ -f '/Users/gabe/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gabe/.google-cloud-sdk/path.zsh.inc'; fi
 # The next line enables shell command completion for gcloud.
