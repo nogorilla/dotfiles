@@ -25,12 +25,14 @@ autoload -Uz compinit && compinit
 zstyle ':completion:*:*:git:*' script $HOME/.zsh/.git-completion.bash
 
 source $HOME/.dotfiles/functions.sh
-if [ -e $HOME/.dotfiles/secret.sh ]; then
+if [ -f $HOME/.dotfiles/secret.sh ]; then
   source $HOME/.dotfiles/secret.sh
 fi
 source $ZSH/oh-my-zsh.sh
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+if [ -f /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]; then
+  source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+fi
 
 export GIT_EDITOR='vim'
 export EDITOR='codee'
@@ -50,13 +52,12 @@ export ENVIRONMENT=development
 export PKG_CONFIG_PATH="${PKG_CONFIG_PATH}:/usr/local/opt/libffi/lib/pkgconfig"
 # export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
-# if [ -e /usr/local/etc/profile.d/z.sh ]; then
-#   . /usr/local/etc/profile.d/z.sh
-# fi
-
-if [ -e /opt/homebrew/etc/profile.d/z.sh ]; then
-  . /opt/homebrew/etc/profile.d/z.sh
-fi
+################################################
+# Z: Jump around: https://github.com/rupa/z
+################################################
+if [ -f $HOME/.z.sh ]; then . $HOME/.z.sh; fi
+if [ -f /opt/homebrew/etc/profile.d/z.sh ]; then . /opt/homebrew/etc/profile.d/z.sh; fi
+################################################
 
 alias ag='ag -p /Users/gabe/.agignore'
 alias cat='bat'
@@ -87,7 +88,7 @@ alias work='cd /Users/gabe/workspace/procter-gamble'
 ##################
 ## --- asdf --- ##
 ##################
-. /opt/homebrew/opt/asdf/libexec/asdf.sh
+if [ -f /opt/homebrew/opt/asdf/libexec/asdf.sh ]; then . /opt/homebrew/opt/asdf/libexec/asdf.sh; fi
 
 ########################
 ## --- serverless --- ##
@@ -116,7 +117,7 @@ export LESS="-F -X -R"
 ## --- go --- ##
 ################
 export GOPATH=$HOME/.go
-export GOROOT=/opt/homebrew/opt/go/libexec
+if [ -d /opt/homebrew/opt/go/libexec ]; then export GOROOT=/opt/homebrew/opt/go/libexec; fi
 
 ####################
 ## --- python --- ##
@@ -133,8 +134,7 @@ export GOROOT=/opt/homebrew/opt/go/libexec
 # export GEM_HOME=$HOME/gems
 # export PATH=$HOME/gems/bin:$PATH
 
-
-export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.sdk
+if [ -d /Applications ]; then export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.sdk; fi
 
 # export LDFLAGS="-L/usr/local/opt/zlib/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"
@@ -161,6 +161,6 @@ path+=(
 )
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/Users/gabe/.google-cloud-sdk/path.zsh.inc' ]; then . '/Users/gabe/.google-cloud-sdk/path.zsh.inc'; fi
+if [ -f $HOME/.google-cloud-sdk/path.zsh.inc ]; then . $HOME/.google-cloud-sdk/path.zsh.inc; fi
 # The next line enables shell command completion for gcloud.
-if [ -f '/Users/gabe/.google-cloud-sdk/completion.zsh.inc' ]; then . '/Users/gabe/.google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f $HOME.google-cloud-sdk/completion.zsh.inc ]; then . $HOME/.google-cloud-sdk/completion.zsh.inc; fi
