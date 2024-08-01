@@ -182,6 +182,7 @@ path+=(
   "$HOME/.rover/bin"
   "$HOME/.goole-cloud-sdk/bin"
   "$HOME/.pub-cache/bin"
+  "$HOME/Library/Android/sdk/platform-tools"
 )
 
 CGO_CFLAGS=-mmacosx-version-min=10.12

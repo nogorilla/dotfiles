@@ -66,13 +66,3 @@ _jwt () {
   printf '\n'
   return 0
 }
-
-convert() {
-  filename="${1%.*}"
-  target="${filename}.mp4"
-  ffmpeg -i $1 -c:v libx264 -c:a aac -strict experimental -b:a 192k $target
-}
-
-convertall() {
-  for f in `find . -type f -name '*.webm'`; do convert $f; done
-}
