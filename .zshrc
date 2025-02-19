@@ -73,7 +73,7 @@ alias git_undo='git reset --soft HEAD\^'
 alias h='history -i | grep'
 alias ld='lazydocker'
 alias lg='lazygit'
-alias ll='lsd -al --group-directories-first'
+alias ll='lsd -Al --group-directories-first'
 alias path='open -a "Path Finder" ./'
 alias ping='prettyping --nolegend'
 alias sqlite=sqlite3
@@ -83,6 +83,8 @@ alias tree='tree -C'
 alias tv=tidy-viewer
 alias weather='curl -4 wttr.in'
 alias work='cd /Users/gabe/workspace/procter-gamble'
+
+alias gcs='git checkout stage'
 
 #####################
 ## --- history --- ##
@@ -157,7 +159,7 @@ export PYENV_VIRTUALENV_DISABLE_PROMPT=1
 # export GEM_HOME=$HOME/gems
 # export PATH=$HOME/gems/bin:$PATH
 
-if [ -d /Applications ]; then export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX13.sdk; fi
+if [ -d /Applications ]; then export SDKROOT=/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX15.2.sdk; fi
 
 # export LDFLAGS="-L/usr/local/opt/zlib/lib"
 # export CPPFLAGS="-I/usr/local/opt/zlib/include"
